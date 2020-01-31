@@ -10,10 +10,10 @@ import UIKit
 
 class AlbumCell: UITableViewCell
 {
-    var album: Album! {
+    var album: Album? {
         didSet {
             
-            if let imageUrlStr = album.artworkUrl100
+            if let imageUrlStr = album?.artworkUrl100
             {
                 albumImage.loadImageUsingCache(withUrl: imageUrlStr)
             }
@@ -21,8 +21,8 @@ class AlbumCell: UITableViewCell
             {
                 albumImage.image = UIImage(named: "Placeholder")
             }
-            albumNameLabel.text = album.name
-            albumDescriptionLabel.text = album.artistName
+            albumNameLabel.text = album?.name
+            albumDescriptionLabel.text = album?.artistName
         }
     }
     

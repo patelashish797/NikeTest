@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Album: Codable
+struct Album: Codable
 {
     var artistName: String?
     var name: String?
@@ -20,7 +20,7 @@ class Album: Codable
     var url: String?
 }
 
-class GenreList: Codable
+struct GenreList: Codable
 {
     var genreId: String?
     var name: String?

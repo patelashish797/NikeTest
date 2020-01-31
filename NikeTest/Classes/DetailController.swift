@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 class DetailController: UIViewController {
     
-    var albumDetail: Album!
+    var albumDetail: Album?
     let biggerImage = UIImageView()
     let albumBtn = UIButton(type: .custom)
     let scrollView = UIScrollView()
@@ -31,7 +31,7 @@ class DetailController: UIViewController {
         biggerImage.contentMode = .scaleAspectFill
         biggerImage.translatesAutoresizingMaskIntoConstraints = false
         
-        if let imageUrlStr = albumDetail.artworkUrl100
+        if let imageUrlStr = albumDetail?.artworkUrl100
         {
             biggerImage.loadImageUsingCache(withUrl: imageUrlStr)
         }
@@ -85,15 +85,15 @@ class DetailController: UIViewController {
             
             switch i {
             case 0:
-                detailsLbl.text = "Album : \(albumDetail.name ?? "")"
+                detailsLbl.text = "Album : \(albumDetail?.name ?? "")"
             case 1:
-                detailsLbl.text = "Artist : \(albumDetail.artistName ?? "")"
+                detailsLbl.text = "Artist : \(albumDetail?.artistName ?? "")"
             case 2:
-                detailsLbl.text = "Genre : \(albumDetail.genres?.getCommaSeparatedValues() ?? "")"
+                detailsLbl.text = "Genre : \(albumDetail?.genres?.getCommaSeparatedValues() ?? "")"
             case 3:
-                detailsLbl.text = "Release Date : \(albumDetail.releaseDate ?? "")"
+                detailsLbl.text = "Release Date : \(albumDetail?.releaseDate ?? "")"
             case 4:
-                detailsLbl.text = "Copyright : \(albumDetail.copyright ?? "")"
+                detailsLbl.text = "Copyright : \(albumDetail?.copyright ?? "")"
             default:
                 print("do nothing")
             }
@@ -112,7 +112,7 @@ class DetailController: UIViewController {
     }
     
     @objc func viewAlbumBtnClicked() {
-        if let url = URL(string: albumDetail.url ?? "") {
+        if let url = URL(string: albumDetail?.url ?? "") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
